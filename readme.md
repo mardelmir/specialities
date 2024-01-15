@@ -21,7 +21,7 @@ Una vez clonado el ejercico deberás hacer `npm install` en terminal para instal
   - Crea una función para filtrar usuarios por su especialidad.
 
 4. Generación de Páginas HTML:
-  - Utiliza literal string para construir páginas HTML directamente en el código..
+  - Utiliza literal string para construir páginas HTML directamente en el código.
   - Crea una página para cada especialidad que muestre el título de la página, el número de personas y los detalles de cada usuario.
 
 5. Prueba de la Aplicación:
