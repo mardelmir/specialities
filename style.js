@@ -27,6 +27,6 @@ const style = `
     span {font-weight: 500;}
 
     p {margin: 5px}
-</style>`;
+</style>`
 
-module.exports = style;
+module.exports = style
