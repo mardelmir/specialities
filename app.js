@@ -6,6 +6,7 @@ const app = express();
 // Funciones
 const specialtyFilter = (specialty) =>
   users.filter((user) => user.specialty === specialty);
+
 const printUsers = (filteredUsers) => {
   const userInfo = filteredUsers.map((user) => {
     return `
@@ -19,7 +20,6 @@ const printUsers = (filteredUsers) => {
 };
 
 // App
-
 app.get('/', (req, res) => {
   res.send(`
         <!DOCTYPE html>
@@ -153,8 +153,7 @@ app.get('/ventas', (req, res) => {
 app.use((req, res) => {
   res
     .status(404)
-    .send(
-      '<h1 style="text-align:center">Página no encontrada</h1><a href="/">Volver a la página principal</a>'
+    .send(`${style}<h1>Página no encontrada</h1><div><a href='/'">Volver a la página principal</a></div>`
     );
 });
 
