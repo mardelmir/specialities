@@ -1,27 +1,25 @@
 const users = require('./users.js');
-const style = require('./style.js')
+const style = require('./style.js');
 const express = require('express');
 const app = express();
 
 // Funciones
 const specialtyFilter = (specialty) =>
-  users.filter((user) => user.specialty === specialty);
+    users.filter((user) => user.specialty === specialty);
 
 const printUsers = (filteredUsers) => {
-  const userInfo = filteredUsers.map((user) => {
-    return `
+    const userInfo = filteredUsers.map((user) => `
             <li>
                 <p><span>ID:</span> ${user.id}</p>
                 <p><span>Nombre:</span> ${user.name}</p>
                 <p><span>Edad:</span> ${user.age}</p>
-            </li>`;
-  });
-  return userInfo.join('');
+            </li>`);
+    return userInfo.join('');
 };
 
 // App
 app.get('/', (req, res) => {
-  res.send(`
+    res.send(`
         <!DOCTYPE html>
         <html lang="es">
             <head>
@@ -43,8 +41,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/marketing', (req, res) => {
-  const marketing = specialtyFilter('marketing');
-  res.send(`
+    const marketing = specialtyFilter('marketing');
+    res.send(`
         <!DOCTYPE html>
         <html lang="es">
             <head>
@@ -70,8 +68,8 @@ app.get('/marketing', (req, res) => {
 });
 
 app.get('/developers', (req, res) => {
-  const developers = specialtyFilter('developers');
-  res.send(`
+    const developers = specialtyFilter('developers');
+    res.send(`
         <!DOCTYPE html>
         <html lang="es">
             <head>
@@ -97,8 +95,8 @@ app.get('/developers', (req, res) => {
 });
 
 app.get('/QAs', (req, res) => {
-  const QAs = specialtyFilter('QAs');
-  res.send(`
+    const QAs = specialtyFilter('QAs');
+    res.send(`
         <!DOCTYPE html>
         <html lang="es">
             <head>
@@ -124,8 +122,8 @@ app.get('/QAs', (req, res) => {
 });
 
 app.get('/ventas', (req, res) => {
-  const ventas = specialtyFilter('ventas');
-  res.send(`
+    const ventas = specialtyFilter('ventas');
+    res.send(`
         <!DOCTYPE html>
         <html lang="es">
             <head>
@@ -151,12 +149,13 @@ app.get('/ventas', (req, res) => {
 });
 
 app.use((req, res) => {
-  res
-    .status(404)
-    .send(`${style}<h1>Página no encontrada</h1><div><a href='/'">Volver a la página principal</a></div>`
-    );
+    res
+        .status(404)
+        .send(`${style}<h1>Página no encontrada</h1><div><a href='/'">Volver a la página principal</a></div>`
+        );
 });
 
 app.listen(3000, () => {
-  console.log('Specialties is listening on port 3000');
+    console.log('Specialties is listening on port 3000');
 });
+
